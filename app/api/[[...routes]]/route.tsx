@@ -68,7 +68,7 @@ app.frame('/', (c) => {
           textAlign: 'center',
           width: '100%',
         }}/> */}
-        <Image src="/chili-crab.png"/>
+        <Image src="/laksa.jpeg"/>
         <div
         style={{
           alignItems: 'center',
@@ -90,24 +90,42 @@ app.frame('/', (c) => {
       </div>
     ),
     intents: [
-      <Button value="buy">Buy</Button>,
-      <Button value="withdraw">Withdraw</Button>,
       <Button.Transaction
-      target="/send-ether"
-    >
+      target="/buy">
+      Buy
+      </Button.Transaction>,
+      
+      <Button.Transaction target="/withdraw">
+        Withdraw
+      </Button.Transaction>,
+      <Button.Transaction target="/send-ether">
       Send Eth
-    </Button.Transaction>,
-      // <Button.Link href={`/api/details`}>Google</Button.Link>,
-
-      // status === 'response' && <Button.Reset>Reset</Button.Reset>,
+      </Button.Transaction>,
+   
     ],
   })
 })
 
 app.transaction('/send-ether', (c) => {
   return c.send({
-  chainId: 'eip155:10',
-  to: '0xd2135CfB216b74109775236E36d4b433F1DF507B',
+  chainId: 'eip155:84532',
+  to: '0x91A8BF832319A65e1de3F870578aF0411375C0EA',
+  value: parseEther('0.0001'),
+  })
+})
+
+app.transaction('/buy', (c) => {
+  return c.send({
+  chainId: 'eip155:84532',
+  to: '0x619e9f58fb0430fba5c0a9fcc4a76d016ce3bff4',
+  value: parseEther('0.0001'),
+  })
+})
+
+app.transaction('/withdraw', (c) => {
+  return c.send({
+  chainId: 'eip155:84532',
+  to: '0x619e9f58fb0430fba5c0a9fcc4a76d016ce3bff4',
   value: parseEther('0.0001'),
   })
 })
