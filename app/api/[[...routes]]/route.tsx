@@ -5,6 +5,7 @@ import { devtools } from 'frog/dev'
 import { neynar } from 'frog/hubs'
 import { handle } from 'frog/next'
 import { serveStatic } from 'frog/serve-static'
+import { createSystem } from 'frog/ui'
 
 const app = new Frog({
   assetsPath: '/',
@@ -12,6 +13,8 @@ const app = new Frog({
   // Supply a Hub to enable frame verification.
   hub: neynar({ apiKey: 'NEYNAR_FROG_FM' })
 })
+
+const { Image, Row, Rows, Text } = createSystem()
 
 // Uncomment to use Edge Runtime
 // export const runtime = 'edge'
@@ -54,7 +57,7 @@ app.frame('/', (c) => {
             ? `Nice choice.${fruit ? ` ${fruit.toUpperCase()}!!` : ''}`
             : 'Welcome!'}
         </div> */}
-        <img src="/chili-crab.png"  alt="Chili Crab" style={{
+        {/* <img src="/chili-crab.png"  alt="Chili Crab" style={{
           alignItems: 'center',
           backgroundSize: '100% 100%',
           display: 'flex',
@@ -64,13 +67,19 @@ app.frame('/', (c) => {
           justifyContent: 'center',
           textAlign: 'center',
           width: '100%',
-        }}/>
+        }}/> */}
+        <Image src="/frog.png"/>
+        <Rows gap="4" grow>
+        <Row backgroundColor="black" height="3/4" />
+        <Row backgroundColor="black" height="1/4">
+        <Text>Hello world</Text>
+          </Row> 
+        </Rows>
       </div>
     ),
     intents: [
-      <TextInput placeholder="Enter custom fruit..." />,
-      <Button value="apples">Apples</Button>,
-      <Button value="oranges">Oranges</Button>,
+      <Button value="buy">Buy</Button>,
+      <Button value="cancel">Cancel</Button>,
       <Button value="bananas">Bananas</Button>,
       status === 'response' && <Button.Reset>Reset</Button.Reset>,
     ],
