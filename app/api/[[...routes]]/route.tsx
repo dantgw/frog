@@ -1,6 +1,6 @@
 /** @jsxImportSource frog/jsx */
 
-import { Button, Frog, TextInput } from 'frog'
+import { Button, Frog, TextInput,parseEther } from 'frog'
 import { devtools } from 'frog/dev'
 import { neynar } from 'frog/hubs'
 import { handle } from 'frog/next'
@@ -95,7 +95,7 @@ app.frame('/', (c) => {
       <Button.Transaction
       target="/send-ether"
     >
-      Banana
+      Send Eth
     </Button.Transaction>,
       // <Button.Link href={`/api/details`}>Google</Button.Link>,
 
@@ -104,10 +104,13 @@ app.frame('/', (c) => {
   })
 })
 
-// app.transaction('/send-ether', (c) => {
-//   const { buttonValue } = c
-//   return c.send()
-// })
+app.transaction('/send-ether', (c) => {
+  return c.send({
+  chainId: 'eip155:10',
+  to: '0xd2135CfB216b74109775236E36d4b433F1DF507B',
+  value: parseEther('0.0001'),
+  })
+})
 
 devtools(app, { serveStatic })
 
