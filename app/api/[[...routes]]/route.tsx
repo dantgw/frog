@@ -7,8 +7,6 @@ import { handle } from 'frog/next'
 import { serveStatic } from 'frog/serve-static'
 import { createSystem } from 'frog/ui'
 
-// import abi from '../../contracts/groupBuy';
-
 const app = new Frog({
   assetsPath: '/',
   basePath: '/api',
@@ -70,7 +68,7 @@ app.frame('/', (c) => {
           textAlign: 'center',
           width: '100%',
         }}/> */}
-        <Image src="/laksa.jpeg"/>
+        <Image src="/chili-crab.png"/>
         <div
         style={{
           alignItems: 'center',
@@ -92,18 +90,16 @@ app.frame('/', (c) => {
       </div>
     ),
     intents: [
+      <Button value="buy">Buy</Button>,
+      <Button value="withdraw">Withdraw</Button>,
       <Button.Transaction
-      target="/send-ether">
-      Buy
-      </Button.Transaction>,
-      
-      <Button.Transaction target="/send-ether">
-        Withdraw
-      </Button.Transaction>,
-      <Button.Transaction target="/send-ether">
+      target="/send-ether"
+    >
       Send Eth
-      </Button.Transaction>,
-   
+    </Button.Transaction>,
+      // <Button.Link href={`/api/details`}>Google</Button.Link>,
+
+      // status === 'response' && <Button.Reset>Reset</Button.Reset>,
     ],
   })
 })
@@ -111,26 +107,10 @@ app.frame('/', (c) => {
 app.transaction('/send-ether', (c) => {
   return c.send({
   chainId: 'eip155:84532',
-  to: '0x91A8BF832319A65e1de3F870578aF0411375C0EA',
-  value: parseEther('0.0001'),
+  to: '0xd2135CfB216b74109775236E36d4b433F1DF507B',
+  value: parseEther('0.0002'),
   })
 })
-
-// app.transaction('/buy', (c) => {
-//   return c.send({
-//   chainId: 'eip155:84532',
-//   to: '0x619e9f58fb0430fba5c0a9fcc4a76d016ce3bff4',
-//   value: parseEther('0.0001'),
-//   })
-// })
-
-// app.transaction('/withdraw', (c) => {
-//   return c.send({
-//   chainId: 'eip155:84532',
-//   to: '0x619e9f58fb0430fba5c0a9fcc4a76d016ce3bff4',
-//   value: parseEther('0.0001'),
-//   })
-// })
 
 devtools(app, { serveStatic })
 
