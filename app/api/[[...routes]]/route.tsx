@@ -38,7 +38,7 @@ app.frame('/', (c) => {
           width: '100%',
         }}
       >
-        <div
+        {/* <div
           style={{
             color: 'white',
             fontSize: 60,
@@ -53,7 +53,18 @@ app.frame('/', (c) => {
           {status === 'response'
             ? `Nice choice.${fruit ? ` ${fruit.toUpperCase()}!!` : ''}`
             : 'Welcome!'}
-        </div>
+        </div> */}
+        <img src="/chili-crab.png"  alt="Chili Crab" style={{
+          alignItems: 'center',
+          backgroundSize: '100% 100%',
+          display: 'flex',
+          flexDirection: 'column',
+          flexWrap: 'nowrap',
+          height: '100%',
+          justifyContent: 'center',
+          textAlign: 'center',
+          width: '100%',
+        }}/>
       </div>
     ),
     intents: [
