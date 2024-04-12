@@ -92,7 +92,7 @@ app.frame('/', (c) => {
     intents: [
       <Button value="buy">Buy</Button>,
       <Button value="withdraw">Withdraw</Button>,
-      <Button.Link href={`/api/details`}>Google</Button.Link>,
+      // <Button.Link href={`/api/details`}>Google</Button.Link>,
 
       // status === 'response' && <Button.Reset>Reset</Button.Reset>,
     ],
