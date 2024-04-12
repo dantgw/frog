@@ -92,11 +92,21 @@ app.frame('/', (c) => {
     intents: [
       <Button value="buy">Buy</Button>,
       <Button value="withdraw">Withdraw</Button>,
+      <Button.Transaction
+      target="/send-ether"
+    >
+      Banana
+    </Button.Transaction>,
       // <Button.Link href={`/api/details`}>Google</Button.Link>,
 
       // status === 'response' && <Button.Reset>Reset</Button.Reset>,
     ],
   })
+})
+
+app.transaction('/send-ether', (c) => {
+  const { buttonValue } = c
+  return c.send({/* ... */})
 })
 
 devtools(app, { serveStatic })
