@@ -90,8 +90,8 @@ app.frame('/', (c) => {
       </div>
     ),
     intents: [
-      <Button value="buy">Buy</Button>,
-      <Button value="withdraw">Withdraw</Button>,
+      <Button.Transaction target="/buy">Buy</Button.Transaction>,
+      <Button.Transaction target="/withdraw">Withdraw</Button.Transaction>,
       <Button.Transaction
       target="/send-ether"
     >
@@ -108,7 +108,23 @@ app.transaction('/send-ether', (c) => {
   return c.send({
   chainId: 'eip155:84532',
   to: '0xd2135CfB216b74109775236E36d4b433F1DF507B',
-  value: parseEther('0.0002'),
+  value: parseEther('0.00001'),
+  })
+})
+
+app.transaction('/buy', (c) => {
+  return c.send({
+  chainId: 'eip155:84532',
+  to: '0xd2135CfB216b74109775236E36d4b433F1DF507B',
+  value: parseEther('0.00001'),
+  })
+})
+
+app.transaction('/withdraw', (c) => {
+  return c.send({
+  chainId: 'eip155:84532',
+  to: '0xd2135CfB216b74109775236E36d4b433F1DF507B',
+  value: parseEther('0.00001'),
   })
 })
 
