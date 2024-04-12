@@ -86,12 +86,7 @@ app.frame('/', (c) => {
 
         <Text>Chilli Crab Offer</Text>
       </div>
-        {/* <Rows gap="4" grow>
-        <Row backgroundColor="black" height="3/4" />
-        <Row backgroundColor="black" height="1/4">
-        <Text>Hello world</Text>
-          </Row> 
-        </Rows> */}
+  
       </div>
     ),
     intents: [
