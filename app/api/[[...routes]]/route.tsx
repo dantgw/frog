@@ -69,12 +69,13 @@ app.frame('/', (c) => {
           width: '100%',
         }}/> */}
         <Image src="/frog.png"/>
-        <Rows gap="4" grow>
+        <Text>hello</Text>
+        {/* <Rows gap="4" grow>
         <Row backgroundColor="black" height="3/4" />
         <Row backgroundColor="black" height="1/4">
         <Text>Hello world</Text>
           </Row> 
-        </Rows>
+        </Rows> */}
       </div>
     ),
     intents: [
