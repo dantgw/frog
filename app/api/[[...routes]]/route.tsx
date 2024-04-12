@@ -104,10 +104,10 @@ app.frame('/', (c) => {
   })
 })
 
-app.transaction('/send-ether', (c) => {
-  const { buttonValue } = c
-  return c.send({/* ... */})
-})
+// app.transaction('/send-ether', (c) => {
+//   const { buttonValue } = c
+//   return c.send()
+// })
 
 devtools(app, { serveStatic })
 
