@@ -68,8 +68,8 @@ app.frame('/', (c) => {
           textAlign: 'center',
           width: '100%',
         }}/> */}
-        <Image src="/frog.png"/>
-        <Text>hello</Text>
+        <Image src="/chili-crab.png"/>
+        <Text>Chilli Crab Offer</Text>
         {/* <Rows gap="4" grow>
         <Row backgroundColor="black" height="3/4" />
         <Row backgroundColor="black" height="1/4">
